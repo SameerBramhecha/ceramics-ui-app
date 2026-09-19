@@ -16,6 +16,24 @@ $ARGUMENTS
 
 You **MUST** consider the user input before proceeding (if not empty).
 
+## Issue-Driven Task Generation
+
+Tasks must be traceable to the GitHub Issue, the feature specification, and the implementation plan.
+
+Required traceability flow:
+```text
+GitHub Issue
+    ↓
+spec.md
+    ↓
+plan.md
+```
+
+Tasks must be dependency ordered, actionable, and implementation-oriented.
+Where practical, include issue traceability in task metadata or comments without breaking the existing Spec Kit task format.
+Do not automatically create separate GitHub Issues for each task when the repository already uses GitHub Issues as the top-level work items.
+Do not change project status in this skill.
+
 ## Pre-Execution Checks
 
 **Check for extension hooks (before tasks generation)**:

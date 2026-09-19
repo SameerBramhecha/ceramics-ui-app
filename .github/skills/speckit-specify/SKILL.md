@@ -16,6 +16,39 @@ $ARGUMENTS
 
 You **MUST** consider the user input before proceeding (if not empty).
 
+## Issue-Driven Input Handling
+
+This repository treats GitHub Issues as the business-level source of truth and `spec.md` as the specification-level source of truth.
+
+Supported issue references in `$ARGUMENTS` include:
+- `12`
+- `#12`
+- `issue 12`
+- a GitHub issue URL
+
+When an issue reference is detected:
+1. Parse the issue number.
+2. Run: `gh issue view <issue-number> --json number,title,body,labels,milestone,state,url`
+3. Use the retrieved Issue as the effective input to specification generation.
+4. Preserve traceability in the generated spec by recording issue number, URL, title, labels, and milestone when available.
+5. If `gh` is unavailable or the command fails, stop specification generation and report the actual `gh` error.
+6. If the issue is closed, stop and report that the issue is closed; do not treat a closed issue as an active implementation request.
+7. The project status remains `Backlog` throughout `/speckit-specify`.
+
+The effective specification input should be treated as:
+
+```text
+GitHub Issue: #<number>
+Title: <title>
+
+<body>
+
+Acceptance Criteria:
+<acceptance criteria if present>
+```
+
+Do not move the project status to `Ready` from this skill.
+
 ## Pre-Execution Checks
 
 **Check for extension hooks (before specification)**:

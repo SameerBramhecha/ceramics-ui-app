@@ -16,6 +16,19 @@ $ARGUMENTS
 
 You **MUST** consider the user input before proceeding (if not empty).
 
+## Issue-Driven Planning Context
+
+This repository's planning workflow must incorporate all of the following sources:
+- the project constitution in `.specify/memory/constitution.md`
+- the originating GitHub Issue
+- the current `spec.md`
+
+The plan may include technical implementation details, but it must not silently change the business requirements established by the issue or the specification.
+
+The planning process should remain compatible with React, TypeScript, Vite, GitHub Pages, and the repository conventions.
+
+Do not change the project status in this skill.
+
 ## Pre-Execution Checks
 
 **Check for extension hooks (before planning)**:

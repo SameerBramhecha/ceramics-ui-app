@@ -16,6 +16,18 @@ $ARGUMENTS
 
 You **MUST** consider the user input before proceeding (if not empty).
 
+## Issue-Driven Clarification Workflow
+
+For this repository, clarification happens against the originating GitHub Issue and the current specification.
+
+When the feature originated from an issue:
+1. Identify the originating issue number.
+2. Read the active specification (`spec.md`).
+3. Fetch the current issue with `gh issue view` when required for traceability or ambiguity resolution.
+4. Resolve ambiguity between the issue requirements and the spec without inventing contradictory requirements.
+5. Preserve business traceability to the issue in the updated specification.
+6. Do not change the project status. Status remains `Backlog` unless the repository explicitly requires otherwise.
+
 ## Pre-Execution Checks
 
 **Check for extension hooks (before clarification)**:

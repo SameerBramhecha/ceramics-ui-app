@@ -16,6 +16,40 @@ $ARGUMENTS
 
 You **MUST** consider the user input before proceeding (if not empty).
 
+## Issue-Driven Readiness Gate
+
+This skill is the readiness gate for GitHub Issue-driven work.
+
+It must analyze consistency across:
+- `.specify/memory/constitution.md`
+- the originating GitHub Issue
+- `spec.md`
+- `plan.md`
+- `tasks.md`
+
+If blocking inconsistencies remain, the project status must remain `Backlog`.
+If the feature is sufficiently consistent and implementation-ready, the status transitions to `Ready`.
+
+The allowed transition is only:
+```text
+Backlog → Ready
+```
+
+Use the repository PowerShell helper when available:
+```powershell
+./scripts/Set-GitHubProjectStatus.ps1 `
+    -IssueNumber <issue-number> `
+    -Status "Ready"
+```
+
+If status update fails, report the actual error and do not silently claim the transition occurred.
+The completion report should include:
+```text
+Issue: #<number>
+Analysis: PASS/FAIL
+Project Status: Ready/Backlog
+```
+
 ## Pre-Execution Checks
 
 **Check for extension hooks (before analysis)**:

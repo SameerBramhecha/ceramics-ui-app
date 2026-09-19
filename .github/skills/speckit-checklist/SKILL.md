@@ -46,6 +46,41 @@ $ARGUMENTS
 
 You **MUST** consider the user input before proceeding (if not empty).
 
+## Repository-Specific Checklist Focus
+
+Preserve the existing requirement-quality behavior and add repository-specific checks for issue-driven delivery.
+
+### GitHub Issue traceability
+- Specification can be traced to the originating issue.
+- Acceptance criteria from the issue are represented in the requirements quality review.
+
+### Responsive UX
+- Mobile behavior is covered.
+- Tablet/desktop behavior is considered where relevant.
+
+### Accessibility
+- Keyboard access is considered.
+- Focus states are considered.
+- Semantic HTML is considered.
+- Accessible names are considered.
+- Contrast is considered.
+
+### Content integrity
+- Business claims are not invented.
+- Product and brand information comes from verified source material.
+
+### Gallery
+- PDF requirements are represented where relevant.
+- Mobile PDF access is considered.
+
+### Git workflow
+- Feature work is not implemented directly on `main`.
+- Implementation is expected on a feature/content/design/a11y/infra branch.
+- Pull request creation is required.
+
+Do not add implementation details into `spec.md` merely to satisfy these checklist items.
+Do not change project status in this skill.
+
 ## Pre-Execution Checks
 
 **Check for extension hooks (before checklist generation)**:

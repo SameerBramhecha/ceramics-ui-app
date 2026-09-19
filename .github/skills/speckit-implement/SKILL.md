@@ -16,6 +16,41 @@ $ARGUMENTS
 
 You **MUST** consider the user input before proceeding (if not empty).
 
+## Issue-Driven Implementation Gate
+
+Implementation must be tied to a GitHub Issue and a non-main branch.
+
+Before implementation begins, verify:
+1. A GitHub Issue exists.
+2. The issue is open.
+3. The current branch is not `main`.
+4. The project status is `Ready` when GitHub Project integration is available.
+5. Required artifacts exist: `spec.md`, `plan.md`, and `tasks.md`.
+
+If implementation is attempted on `main`, stop immediately and tell the user a non-main branch is required.
+
+When implementation begins, transition:
+```text
+Ready → In Progress
+```
+
+Use the repository PowerShell helper when available:
+```powershell
+./scripts/Set-GitHubProjectStatus.ps1 `
+    -IssueNumber <issue-number> `
+    -Status "In Progress"
+```
+
+Then execute the generated implementation tasks on the feature branch.
+
+Do not:
+- commit directly to `main`
+- push to `main`
+- create a Pull Request from inside this skill unless the repository explicitly supports it
+
+When implementation finishes, run the repo validation/build checks and report pass/fail accurately. Do not claim the work is in `Review` yet.
+There is no `/speckit-converge` step in this repository.
+
 ## Pre-Execution Checks
 
 **Check for extension hooks (before implementation)**:

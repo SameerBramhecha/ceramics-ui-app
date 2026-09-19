@@ -1,0 +1,20 @@
+{
+  "mainBranch": "main",
+  "projectOwner": "@me",
+  "projectNumber": 1,
+  "statusField": "Status",
+  "statuses": [
+    "Backlog",
+    "Ready",
+    "In Progress",
+    "Review",
+    "Done"
+  ],
+  "labels": [
+    "feature",
+    "content",
+    "design",
+    "a11y",
+    "infra"
+  ]
+}
