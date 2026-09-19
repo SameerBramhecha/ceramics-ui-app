@@ -1,0 +1,25 @@
+name: Feature (user story)
+description: A feature for the ceramics site
+labels: ["feature"]
+body:
+  - type: textarea
+    id: story
+    attributes:
+      label: User story
+      placeholder: As a visitor, I want ___ so that ___.
+    validations:
+      required: true
+  - type: textarea
+    id: criteria
+    attributes:
+      label: Acceptance criteria (rough)
+      placeholder: |
+        - [ ] Given ..., when ..., then ...
+        - [ ] User can ...
+      validations:
+        required: true
+  - type: input
+    id: spec
+    attributes:
+      label: Spec folder (auto-filled by /speckit.specify)
+      placeholder: specs/003-gallery/
