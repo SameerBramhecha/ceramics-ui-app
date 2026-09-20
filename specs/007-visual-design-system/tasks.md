@@ -22,6 +22,10 @@
 - [ ] T005 [P] Add a lightweight visual-check quickstart script placeholder `specs/007-visual-design-system/tools/run-visual-checks.sh` with instructions to run manual/CLI contrast checks (path: `specs/007-visual-design-system/tools/run-visual-checks.sh`).
 - [ ] T006 Create `specs/007-visual-design-system/checklists/accessibility.md` (requirements-quality checklist stub for accessibility to be completed by reviewer) (path: `specs/007-visual-design-system/checklists/accessibility.md`).
 
+- [x] T004 Create `specs/007-visual-design-system/accessibility.md` documenting WCAG AA targets, contrast guidance, and focus indicators (path: `specs/007-visual-design-system/accessibility.md`).
+- [x] T005 [P] Add a lightweight visual-check quickstart script placeholder `specs/007-visual-design-system/tools/run-visual-checks.sh` with instructions to run manual/CLI contrast checks (path: `specs/007-visual-design-system/tools/run-visual-checks.sh`).
+- [x] T006 Create `specs/007-visual-design-system/checklists/accessibility.md` (requirements-quality checklist stub for accessibility to be completed by reviewer) (path: `specs/007-visual-design-system/checklists/accessibility.md`).
+
 **Checkpoint**: Foundation ready — user stories can begin after T004–T006 complete.
 
 ---
