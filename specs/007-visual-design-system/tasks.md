@@ -8,9 +8,9 @@
 
 **Purpose**: Project initialization and basic structure for design tokens and documentation
 
-- [ ] T001 Create `src/styles/design-tokens.css` with initial CSS custom properties (colors, typography scale tokens, spacing variables). Provide token naming and short descriptions in comments. (path: `src/styles/design-tokens.css`)
-- [ ] T002 Create documentation file `specs/007-visual-design-system/tokens.md` listing token names, values, and intended usages (path: `specs/007-visual-design-system/tokens.md`).
-- [ ] T003 [P] Add a `specs/007-visual-design-system/components/` folder and stub example docs for `card.md`, `button.md`, `header.md` showing token mappings (path: `specs/007-visual-design-system/components/`).
+- [x] T001 Create `src/styles/design-tokens.css` with initial CSS custom properties (colors, typography scale tokens, spacing variables). Provide token naming and short descriptions in comments. (path: `src/styles/design-tokens.css`)
+- [x] T002 Create documentation file `specs/007-visual-design-system/tokens.md` listing token names, values, and intended usages (path: `specs/007-visual-design-system/tokens.md`).
+- [x] T003 [P] Add a `specs/007-visual-design-system/components/` folder and stub example docs for `card.md`, `button.md`, `header.md` showing token mappings (path: `specs/007-visual-design-system/components/`).
 
 ---
 
