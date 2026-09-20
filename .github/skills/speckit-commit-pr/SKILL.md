@@ -27,6 +27,7 @@ This command is the explicit handoff from implementation to review.
 - The repo must be in a good local validation state before committing.
 - Do not auto-create a PR from `main`.
 - Use the repository script instead of ad hoc PR commands when available.
+- The PR body must follow the repository template in [.github/PULL_REQUEST_TEMPLATE.md](../../.github/PULL_REQUEST_TEMPLATE.md), with the `implement` stage checked and the `specify` stage left unchecked unless the PR is truly a specification update.
 
 ## Required step
 

@@ -51,6 +51,7 @@ Default behavior:
 Optional PR handoff (explicit user request only):
 - After successful local validation and after the user explicitly asks to raise the PR, use the dedicated command `/speckit-commit-pr` or run the repository-supported script in [scripts/New-PullRequest.ps1](../../scripts/New-PullRequest.ps1) with the current issue number
 - This flow stages and commits changes, pushes the feature branch, creates the PR, and moves the issue to `Review`
+- The generated PR must follow the repository template in [.github/PULL_REQUEST_TEMPLATE.md](../../.github/PULL_REQUEST_TEMPLATE.md); check the `implement` stage and keep the description aligned with the issue being closed
 - If the user does not request PR creation, do not create one automatically from this skill
 
 When implementation finishes, run the repo validation/build checks and report pass/fail accurately. Do not claim the work is in `Review` yet unless the user explicitly requested the PR handoff and it completed successfully.
