@@ -54,6 +54,11 @@
 - [ ] T013 [US2] Update `specs/007-visual-design-system/components/button.md` with usage guidance and variant mapping (path: `specs/007-visual-design-system/components/button.md`).
 - [ ] T014 [US2] Run a visual review and document deviations in `specs/007-visual-design-system/review-notes.md` (path: `specs/007-visual-design-system/review-notes.md`).
 
+- [x] T011 [US2] Create `src/components/Button.css` implementing button tokens for primary/secondary/outline variants (path: `src/components/Button.css`).
+- [x] T012 [US2] Create `src/components/Card.css` implementing card layout, spacing and elevation using tokens (path: `src/components/Card.css`).
+- [x] T013 [US2] Update `specs/007-visual-design-system/components/button.md` with usage guidance and variant mapping (path: `specs/007-visual-design-system/components/button.md`).
+- [x] T014 [US2] Run a visual review and document deviations in `specs/007-visual-design-system/review-notes.md` (path: `specs/007-visual-design-system/review-notes.md`).
+
 ---
 
 ## Phase 5: User Story 3 - Accessibility & Readability (Priority: P3)

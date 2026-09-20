@@ -1,0 +1,37 @@
+/* Button component styles using design tokens */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: calc(var(--spacing-2)) calc(var(--spacing-3));
+  font-size: var(--font-size-scale-2);
+  border-radius: calc(var(--spacing-2));
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: box-shadow 0.15s, transform 0.08s;
+}
+
+.btn:focus-visible {
+  outline: 3px solid rgba(31,41,51,0.12);
+  outline-offset: 2px;
+}
+
+.btn--primary {
+  background: var(--color-accent);
+  color: var(--color-neutral-100);
+  box-shadow: var(--elevation-1);
+}
+
+.btn--primary:hover { transform: translateY(-1px); }
+
+.btn--secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border-color: var(--border);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-accent);
+  border: 1px dashed var(--accent-border);
+}
