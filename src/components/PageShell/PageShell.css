@@ -1,0 +1,3 @@
+.page-shell__header { display: flex; align-items: center; justify-content: space-between; padding: 16px; }
+.page-shell__main { padding: 16px; }
+.page-shell__footer { padding: 16px; text-align: center; font-size: 0.9rem; }
