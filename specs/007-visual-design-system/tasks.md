@@ -45,11 +45,6 @@
 
 **Independent Test**: Compare Button and Card implementations against `specs/007-visual-design-system/components/*.md` and confirm token mappings are used.
 
-- [ ] T011 [US2] Create `src/components/Button.css` implementing button tokens for primary/secondary/outline variants (path: `src/components/Button.css`).
-- [ ] T012 [US2] Create `src/components/Card.css` implementing card layout, spacing and elevation using tokens (path: `src/components/Card.css`).
-- [ ] T013 [US2] Update `specs/007-visual-design-system/components/button.md` with usage guidance and variant mapping (path: `specs/007-visual-design-system/components/button.md`).
-- [ ] T014 [US2] Run a visual review and document deviations in `specs/007-visual-design-system/review-notes.md` (path: `specs/007-visual-design-system/review-notes.md`).
-
 - [x] T011 [US2] Create `src/components/Button.css` implementing button tokens for primary/secondary/outline variants (path: `src/components/Button.css`).
 - [x] T012 [US2] Create `src/components/Card.css` implementing card layout, spacing and elevation using tokens (path: `src/components/Card.css`).
 - [x] T013 [US2] Update `specs/007-visual-design-system/components/button.md` with usage guidance and variant mapping (path: `specs/007-visual-design-system/components/button.md`).
@@ -63,9 +58,6 @@
 
 **Independent Test**: Automated or manual contrast checks for body text; keyboard navigation check for interactive elements.
 
-- [ ] T015 [US3] Run color-contrast checks for tokens in `src/styles/design-tokens.css` and update tokens if any color fails WCAG AA for body text (document changes in `specs/007-visual-design-system/accessibility.md`).
-- [ ] T016 [US3] Implement visible focus styles for interactive components and document them in `specs/007-visual-design-system/accessibility.md` (paths: `src/components/Button.css`, `src/components/Card.css`).
-- [ ] T017 [US3] Add accessibility examples and verification steps to `specs/007-visual-design-system/quickstart.md` for reviewer validation (path: `specs/007-visual-design-system/quickstart.md`).
 
 - [x] T015 [US3] Run color-contrast checks for tokens in `src/styles/design-tokens.css` and update tokens if any color fails WCAG AA for body text (document changes in `specs/007-visual-design-system/accessibility.md`).
 - [x] T016 [US3] Implement visible focus styles for interactive components and document them in `specs/007-visual-design-system/accessibility.md` (paths: `src/components/Button.css`, `src/components/Card.css`).
@@ -77,9 +69,9 @@
 
 **Purpose**: Documentation, cleanup, and integration tasks that touch multiple stories
 
-- [ ] T018 [P] Documentation: Consolidate final design reference into `docs/design-system.md` linking to spec and component docs (path: `docs/design-system.md`).
-- [ ] T019 [P] Create a Pull Request from `feature/9-visual-design-system` to `main` with summary and links to spec/plan/tasks (use `gh pr create` or script) (path: repo root).
-- [ ] T020 Accessibility final review: reviewer to complete `specs/007-visual-design-system/checklists/accessibility.md` and `specs/007-visual-design-system/checklists/ux.md` entries (path: `specs/007-visual-design-system/checklists/`).
+- [x] T018 [P] Documentation: Consolidate final design reference into `docs/design-system.md` linking to spec and component docs (path: `docs/design-system.md`).
+- [x] T019 [P] Create a Pull Request from `feature/9-visual-design-system` to `main` with summary and links to spec/plan/tasks (use `gh pr create` or script) (path: repo root).
+- [x] T020 Accessibility final review: reviewer to complete `specs/007-visual-design-system/checklists/accessibility.md` and `specs/007-visual-design-system/checklists/ux.md` entries (path: `specs/007-visual-design-system/checklists/`).
 
 ---
 
