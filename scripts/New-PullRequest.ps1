@@ -21,20 +21,43 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 $prTitle = "Implement issue #$IssueNumber"
+$repoRoot = Split-Path -Parent $PSScriptRoot
+$templatePath = Join-Path $repoRoot '.github/PULL_REQUEST_TEMPLATE.md'
 $prBody = @"
-## Validation
+## Stage
+- [ ] specify
+- [x] implement
 
-- /speckit-analyze completed successfully
-- /speckit-implement completed
-- Local validation completed
-- CI will run on this Pull Request
+## Description
+This PR addresses issue #$IssueNumber and completes the implementation work for the requested change.
+
+Notes:
+- Use this as a soft enforcement mechanism: CI or workflows can add a failing check if Stage is missing later.
+- Optionally auto-add labels based on the Stage via a GitHub Action.
 
 Closes #$IssueNumber
 "@
 
-gh pr create --title $prTitle --body $prBody --fill
-if ($LASTEXITCODE -ne 0) {
-    throw 'Pull request creation failed.'
+if (Test-Path $templatePath) {
+    $templateContent = Get-Content -Path $templatePath -Raw
+    $templateContent = $templateContent -replace '(?m)^\s*-\s*\[ \]\s*specify\s*$', '- [ ] specify'
+    $templateContent = $templateContent -replace '(?m)^\s*-\s*\[ \]\s*implement\s*$', '- [x] implement'
+    $templateContent = $templateContent -replace '\(Describe what this PR changes and why\)', "This PR addresses issue #$IssueNumber and completes the implementation work for the requested change."
+    $templateContent = $templateContent.TrimEnd()
+    $prBody = "$templateContent`n`nCloses #$IssueNumber"
+}
+
+$tmpFile = [System.IO.Path]::GetTempFileName()
+try {
+    Set-Content -Path $tmpFile -Value $prBody -Encoding UTF8
+    gh pr create --title $prTitle --body-file $tmpFile
+    if ($LASTEXITCODE -ne 0) {
+        throw 'Pull request creation failed.'
+    }
+} finally {
+    if (Test-Path $tmpFile) {
+        Remove-Item $tmpFile -Force
+    }
 }
 
 ./scripts/Set-GitHubProjectStatus.ps1 -IssueNumber $IssueNumber -Status 'Review'
