@@ -21,7 +21,8 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 $prTitle = "Implement issue #$IssueNumber"
-$templatePath = Join-Path $PSScriptRoot '..' '.github/PULL_REQUEST_TEMPLATE.md'
+$repoRoot = Split-Path -Parent $PSScriptRoot
+$templatePath = Join-Path $repoRoot '.github/PULL_REQUEST_TEMPLATE.md'
 $prBody = @"
 ## Stage
 - [ ] specify
