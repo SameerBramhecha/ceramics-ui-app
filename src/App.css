@@ -1,20 +1,34 @@
+.import-tokens-placeholder {}
+@import './styles/design-tokens.css';
+
+:root {
+  --accent: var(--color-accent);
+  --accent-bg: rgba(209,123,74,0.06);
+  --accent-border: var(--color-accent);
+  --border: rgba(11,15,18,0.08);
+  --text-h: var(--color-primary);
+  --social-bg: rgba(15,23,30,0.03);
+  --shadow: var(--elevation-1);
+}
+
 .counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
+  font-size: var(--font-size-scale-2);
+  padding: var(--spacing-2) var(--spacing-3);
+  border-radius: calc(var(--spacing-2));
   color: var(--accent);
   background: var(--accent-bg);
   border: 2px solid transparent;
   transition: border-color 0.3s;
-  margin-bottom: 24px;
+  margin-bottom: var(--spacing-4);
+}
 
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
+.counter:hover {
+  border-color: var(--accent-border);
+}
+
+.counter:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .hero {

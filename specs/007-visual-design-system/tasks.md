@@ -36,10 +36,10 @@
 
 **Independent Test**: Review Home and Gallery pages and confirm they use tokens from `src/styles/design-tokens.css` and match documentation in `specs/007-visual-design-system/tokens.md`.
 
-- [ ] T007 [US1] Update `src/App.css` to import `src/styles/design-tokens.css` and expose base variables for the app (path: `src/App.css`).
-- [ ] T008 [US1] Implement token usage in `src/pages/Home.css` (or `src/App.css` if pages not present) to style hero, headings, and body text according to typographic tokens (path: `src/pages/Home.css`).
-- [ ] T009 [US1] Implement token usage in `src/components/GalleryCard.css` to style gallery item cards (spacing, type, background) using tokens (path: `src/components/GalleryCard.css`).
-- [ ] T010 [US1] Add visual examples to `specs/007-visual-design-system/components/card.md` demonstrating the GalleryCard mapping and screenshots/examples (path: `specs/007-visual-design-system/components/card.md`).
+ - [x] T007 [US1] Update `src/App.css` to import `src/styles/design-tokens.css` and expose base variables for the app (path: `src/App.css`).
+ - [x] T008 [US1] Implement token usage in `src/pages/Home.css` (or `src/App.css` if pages not present) to style hero, headings, and body text according to typographic tokens (path: `src/pages/Home.css`).
+ - [x] T009 [US1] Implement token usage in `src/components/GalleryCard.css` to style gallery item cards (spacing, type, background) using tokens (path: `src/components/GalleryCard.css`).
+ - [x] T010 [US1] Add visual examples to `specs/007-visual-design-system/components/card.md` demonstrating the GalleryCard mapping and screenshots/examples (path: `specs/007-visual-design-system/components/card.md`).
 
 ---
 
