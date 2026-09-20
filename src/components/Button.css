@@ -12,7 +12,7 @@
 }
 
 .btn:focus-visible {
-  outline: 3px solid rgba(31,41,51,0.12);
+  outline: 3px solid var(--accent-border);
   outline-offset: 2px;
 }
 

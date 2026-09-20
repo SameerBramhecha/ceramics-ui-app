@@ -18,10 +18,6 @@
 
 **Purpose**: Core artifacts that must exist before user-story implementation begins
 
-- [ ] T004 Create `specs/007-visual-design-system/accessibility.md` documenting WCAG AA targets, contrast guidance, and focus indicators (path: `specs/007-visual-design-system/accessibility.md`).
-- [ ] T005 [P] Add a lightweight visual-check quickstart script placeholder `specs/007-visual-design-system/tools/run-visual-checks.sh` with instructions to run manual/CLI contrast checks (path: `specs/007-visual-design-system/tools/run-visual-checks.sh`).
-- [ ] T006 Create `specs/007-visual-design-system/checklists/accessibility.md` (requirements-quality checklist stub for accessibility to be completed by reviewer) (path: `specs/007-visual-design-system/checklists/accessibility.md`).
-
 - [x] T004 Create `specs/007-visual-design-system/accessibility.md` documenting WCAG AA targets, contrast guidance, and focus indicators (path: `specs/007-visual-design-system/accessibility.md`).
 - [x] T005 [P] Add a lightweight visual-check quickstart script placeholder `specs/007-visual-design-system/tools/run-visual-checks.sh` with instructions to run manual/CLI contrast checks (path: `specs/007-visual-design-system/tools/run-visual-checks.sh`).
 - [x] T006 Create `specs/007-visual-design-system/checklists/accessibility.md` (requirements-quality checklist stub for accessibility to be completed by reviewer) (path: `specs/007-visual-design-system/checklists/accessibility.md`).
@@ -70,6 +66,10 @@
 - [ ] T015 [US3] Run color-contrast checks for tokens in `src/styles/design-tokens.css` and update tokens if any color fails WCAG AA for body text (document changes in `specs/007-visual-design-system/accessibility.md`).
 - [ ] T016 [US3] Implement visible focus styles for interactive components and document them in `specs/007-visual-design-system/accessibility.md` (paths: `src/components/Button.css`, `src/components/Card.css`).
 - [ ] T017 [US3] Add accessibility examples and verification steps to `specs/007-visual-design-system/quickstart.md` for reviewer validation (path: `specs/007-visual-design-system/quickstart.md`).
+
+- [x] T015 [US3] Run color-contrast checks for tokens in `src/styles/design-tokens.css` and update tokens if any color fails WCAG AA for body text (document changes in `specs/007-visual-design-system/accessibility.md`).
+- [x] T016 [US3] Implement visible focus styles for interactive components and document them in `specs/007-visual-design-system/accessibility.md` (paths: `src/components/Button.css`, `src/components/Card.css`).
+- [x] T017 [US3] Add accessibility examples and verification steps to `specs/007-visual-design-system/quickstart.md` for reviewer validation (path: `specs/007-visual-design-system/quickstart.md`).
 
 ---
 

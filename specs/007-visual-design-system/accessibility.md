@@ -23,3 +23,36 @@ This document captures accessibility targets and guidance for the Visual Design 
 ## Verification
 
 - Use automated color-contrast checks and manual keyboard navigation tests as described in `quickstart.md`.
+
+
+## Automated contrast-check results
+
+- color-primary vs color-neutral-100: contrast ratio 14.76 
+- color-accent vs color-neutral-100: contrast ratio 3.16 
+- color-neutral-100 vs color-neutral-100: contrast ratio 1 
+- color-neutral-900 vs color-neutral-100: contrast ratio 19.24 
+- color-success vs color-neutral-100: contrast ratio 5.13 
+- color-warning vs color-neutral-100: contrast ratio 2.15 
+- color-error vs color-neutral-100: contrast ratio 4.83 
+
+
+## Automated contrast-check results
+
+- color-primary vs color-neutral-100: contrast ratio 14.76 
+- color-accent vs color-neutral-100: contrast ratio 6.11 
+- color-neutral-100 vs color-neutral-100: contrast ratio 1 
+- color-neutral-900 vs color-neutral-100: contrast ratio 19.24 
+- color-success vs color-neutral-100: contrast ratio 5.13 
+- color-warning vs color-neutral-100: contrast ratio 4.24 
+- color-error vs color-neutral-100: contrast ratio 4.83 
+
+
+## Automated contrast-check results
+
+- color-primary vs color-neutral-100: contrast ratio 14.76 
+- color-accent vs color-neutral-100: contrast ratio 6.11 
+- color-neutral-100 vs color-neutral-100: contrast ratio 1 
+- color-neutral-900 vs color-neutral-100: contrast ratio 19.24 
+- color-success vs color-neutral-100: contrast ratio 5.13 
+- color-warning vs color-neutral-100: contrast ratio 5.85 
+- color-error vs color-neutral-100: contrast ratio 4.83 

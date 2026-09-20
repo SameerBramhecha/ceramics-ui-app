@@ -16,7 +16,13 @@ Validation Steps
 
 2. Color contrast checks
 
-   - Use a color-contrast tool (browser extension or CLI) to verify body text meets WCAG AA against background.
+   - Run the included contrast script to verify token contrast ratios:
+
+     ```bash
+     node scripts/check-contrast.cjs
+     ```
+
+     The script appends results to `specs/007-visual-design-system/accessibility.md` and reports ratios for token pairs. Adjust tokens if any foreground token used for body text has contrast < 4.5:1.
 
 3. Component samples
 
