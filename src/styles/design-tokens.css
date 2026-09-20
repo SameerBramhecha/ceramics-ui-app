@@ -1,0 +1,19 @@
+/* Design tokens: breakpoints and spacing */
+:root {
+  --breakpoint-mobile: 599px;
+  --breakpoint-tablet-min: 600px;
+  --breakpoint-tablet-max: 899px;
+  --breakpoint-laptop-min: 900px;
+  --breakpoint-laptop-max: 1199px;
+  --breakpoint-desktop: 1200px;
+
+  --container-padding-mobile: 16px;
+  --container-padding-tablet: 24px;
+  --container-padding-laptop: 32px;
+  --container-padding-desktop: 40px;
+
+  --container-max-mobile: 100%;
+  --container-max-tablet: 720px;
+  --container-max-laptop: 1024px;
+  --container-max-desktop: 1200px;
+}
