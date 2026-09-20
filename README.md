@@ -52,6 +52,14 @@ gh auth login
 ./scripts/New-FeatureBranch.ps1 -IssueNumber <number>
 ```
 
+## Commit and Pull Request
+
+```powershell
+./scripts/CommitAndCreatePr.ps1 -IssueNumber <number> -CommitMessage "Implement issue #<number>"
+```
+
+This stages all changes, creates a commit on the current feature branch, and then opens the PR through the repository-supported workflow.
+
 ## Pull Request
 
 ```powershell

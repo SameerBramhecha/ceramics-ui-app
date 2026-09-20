@@ -30,8 +30,8 @@ Backlog → Ready → In Progress → Review → Done
 12. Run `/speckit-implement`.
 13. Move Issue from Ready to In Progress.
 14. Validate implementation.
-15. Push feature branch.
-16. Create Pull Request.
+15. Run `/speckit-commit-pr` or `./scripts/CommitAndCreatePr.ps1` to commit and open the PR.
+16. Push feature branch and create Pull Request through the repo script.
 17. Move Issue from In Progress to Review.
 18. Review and run CI.
 19. Merge Pull Request into main.

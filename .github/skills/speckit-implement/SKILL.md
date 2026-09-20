@@ -43,12 +43,17 @@ Use the repository PowerShell helper when available:
 
 Then execute the generated implementation tasks on the feature branch.
 
-Do not:
-- commit directly to `main`
-- push to `main`
-- create a Pull Request from inside this skill unless the repository explicitly supports it
+Default behavior:
+- commit only on the feature branch
+- never push to or commit directly to `main`
+- keep implementation and review as separate phases
 
-When implementation finishes, run the repo validation/build checks and report pass/fail accurately. Do not claim the work is in `Review` yet.
+Optional PR handoff (explicit user request only):
+- After successful local validation and after the user explicitly asks to raise the PR, use the dedicated command `/speckit-commit-pr` or run the repository-supported script in [scripts/New-PullRequest.ps1](../../scripts/New-PullRequest.ps1) with the current issue number
+- This flow stages and commits changes, pushes the feature branch, creates the PR, and moves the issue to `Review`
+- If the user does not request PR creation, do not create one automatically from this skill
+
+When implementation finishes, run the repo validation/build checks and report pass/fail accurately. Do not claim the work is in `Review` yet unless the user explicitly requested the PR handoff and it completed successfully.
 There is no `/speckit-converge` step in this repository.
 
 ## Pre-Execution Checks
