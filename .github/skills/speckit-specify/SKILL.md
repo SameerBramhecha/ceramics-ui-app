@@ -103,11 +103,29 @@ Given that feature description, do this:
      - "Create a dashboard for analytics" → "analytics-dashboard"
      - "Fix payment processing timeout bug" → "fix-payment-timeout"
 
-2. **Branch creation** (optional, via hook):
+2. **Branch creation** (core workflow):
 
-   If a `before_specify` hook ran successfully in the Pre-Execution Checks above, it will have created/switched to a git branch and output JSON containing `BRANCH_NAME` and `FEATURE_NUM`. Note these values for reference, but the branch name does **not** dictate the spec directory name.
+    Branch creation is a core part of `/speckit-specify` and does NOT depend on `.specify/extensions.yml` or any `before_specify` hook. Extension hooks may still be present and executed, but they do not control or replace the branch creation workflow.
 
-   If the user explicitly provided `GIT_BRANCH_NAME`, pass it through to the hook so the branch script uses the exact value as the branch name (bypassing all prefix/suffix generation).
+    After the Issue has been fetched and the short feature name has been generated, create the feature branch from the latest `main` using the following sequence and safety checks:
+
+    - Verify the repository is a Git repository. If not: STOP.
+    - Verify the working tree is clean: run `git status --short`. If there are uncommitted changes: STOP and report: "Cannot create feature branch safely because the working tree contains uncommitted changes." Do NOT stash, commit, reset, or discard user changes.
+    - Update local `main` from origin:
+       - `git fetch origin`
+       - `git checkout main`
+       - `git pull --ff-only origin main`
+    - Create the feature branch from `main` (do NOT create from the current branch):
+       - Branch name: `feature/<issue-number>-<short-name>` (for example `feature/12-pdf-product-gallery`).
+       - `git checkout -b feature/<issue-number>-<short-name>`
+    - Verify the current branch is not `main` after creation: `git branch --show-current` MUST return the new feature branch. If it returns `main`: STOP.
+
+    Existing branch handling:
+    - If the desired branch already exists (locally or remotely), do NOT overwrite it. Report: "Feature branch already exists: <branch>" and prompt the user whether to continue using that branch. Do NOT delete or reset the existing branch automatically.
+
+    Notes:
+    - The core workflow always performs branch creation before creating the spec directory.
+    - Never create implementation or specification commits on `main`. Checking out `main` is only allowed to update it and create the feature branch.
 
 3. **Create the spec feature directory**:
 
@@ -269,46 +287,31 @@ Given that feature description, do this:
 
 **You MUST complete this section before reporting completion to the user.**
 
-Check if `.specify/extensions.yml` exists in the project root.
-- If it does not exist, or no hooks are registered under `hooks.after_specify`, skip to the Completion Report.
-- If it exists, read it and look for entries under the `hooks.after_specify` key.
-- If the YAML cannot be parsed or is invalid, do not skip silently: tell the user that `.specify/extensions.yml` could not be read (include the parser error) and that no hooks were checked, including any mandatory (`optional: false`) hooks registered there, then continue to the Completion Report.
-- Filter out hooks where `enabled` is explicitly `false`. Treat hooks without an `enabled` field as enabled by default.
-- For each remaining hook, do **not** attempt to interpret or evaluate hook `condition` expressions:
-  - If the hook has no `condition` field, or it is null/empty, treat the hook as executable
-  - If the hook defines a non-empty `condition`, skip the hook and leave condition evaluation to the HookExecutor implementation
-- When constructing command invocations from hook command names, replace dots (`.`) with hyphens (`-`). For example, `speckit.git.commit` → `/speckit-git-commit`.
-- For each executable hook, output the following based on its `optional` flag:
-  - **Mandatory hook** (`optional: false`) — **You MUST emit `EXECUTE_COMMAND:` for each mandatory hook**:
-    ```
-    ## Extension Hooks
+Extension hooks (if present) are optional adjuncts to the core workflow and must not be relied on for branch creation. If `.specify/extensions.yml` exists and registers `hooks.after_specify`, follow the same processing rules as the previous Pre-Execution Hooks section:
+- If the YAML cannot be parsed, report the parser error and continue (do not treat absence or parse errors as blocking branch/spec creation).
+- Filter out hooks where `enabled` is explicitly `false`.
+- Treat hooks with non-empty `condition` as skipped (leave evaluation to HookExecutor).
 
-    **Automatic Hook**: {extension}
-    Executing: `/{command}`
-    EXECUTE_COMMAND: {command}
-    ```
-    After emitting the block above you MUST actually invoke the hook and wait for it to finish before continuing. Run it the same way you would run the command yourself in this agent/session (the invocation may differ from the literal `{command}` id shown above, e.g. a skills-mode agent runs it as `/skill:speckit-...` or `$speckit-...`). Emitting the block alone does not run the hook.
-  - **Optional hook** (`optional: true`):
-    ```
-    ## Extension Hooks
+When a hook is executable:
+- For **mandatory** hooks (`optional: false`) emit the block and actually invoke the hook, waiting for completion. You MUST include `EXECUTE_COMMAND:` for mandatory hooks and run them.
+- For **optional** hooks (`optional: true`) print the description and how to execute them, but do not require execution.
 
-    **Optional Hook**: {extension}
-    Command: `/{command}`
-    Description: {description}
-
-    Prompt: {prompt}
-    To execute: `/{command}`
-    ```
+Remember: core branch creation and spec directory/file creation run regardless of whether hooks exist or succeed.
 
 ## Completion Report
 
 Report completion to the user with:
-- `SPECIFY_FEATURE_DIRECTORY` — the feature directory path
-- `SPEC_FILE` — the spec file path
-- Checklist results summary
-- Readiness for the next phase (`/speckit-clarify` or `/speckit-plan`)
+- **Feature**: <feature name>
+- **GitHub Issue**: #<number> — include issue URL, title, labels, and milestone where available
+- **Branch**: `feature/<issue-number>-<short-name>`
+- **Base branch**: `main`
+- **Spec directory**: `SPECIFY_FEATURE_DIRECTORY` (path)
+- **Spec file**: `SPEC_FILE` (path)
+- **Checklist**: pass/fail summary
+- **Project Status**: Backlog
+- **Next step**: `/speckit-clarify` or `/speckit-plan` depending on clarification markers and validation results
 
-**NOTE:** Branch creation is handled by the `before_specify` hook (git extension). Spec directory and file creation are always handled by this core command.
+Important: Branch creation is performed by the core `/speckit-specify` workflow before spec creation. Presence or absence of `.specify/extensions.yml` does not prevent branch creation or spec generation.
 
 ## Quick Guidelines
 
@@ -373,6 +376,14 @@ Success criteria must be:
 
 ## Done When
 
-- [ ] Specification written to `SPEC_FILE` and validated against quality checklist
-- [ ] Extension hooks dispatched or skipped according to the rules in Mandatory Post-Execution Hooks above
-- [ ] Completion reported to user with feature directory, spec file path, and checklist results
+- [ ] GitHub Issue fetched and validated
+- [ ] Issue is open
+- [ ] Latest main fetched
+- [ ] Feature branch created from main
+- [ ] Current branch verified as non-main (feature branch checked out)
+- [ ] Specification directory created
+- [ ] spec.md created
+- [ ] Specification validated
+- [ ] Checklist generated/validated
+- [ ] Project status remains Backlog
+- [ ] Completion reported
